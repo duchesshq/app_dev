@@ -83,7 +83,49 @@ class TblExportTrades(TblExportBooks):
     __tablename__ = 'tble_export_trades'
 
 
-class TbleBooks(Base):
+class TblBooks(Base):
     __table__ = 'tbl_books'
 
     book_id = Column(Integer, primary_key = True)
+    book_title = Column(String)
+    book_publisher = Column(String)
+    book_isbn = Column(String)
+    book_upc = Column(String)
+    book_is_active = Column(String)
+    book_mature = Column(String)
+    book_all_ages = Column(String)
+    book_local = Column(String)
+    book_sub_etc = Column(String)
+    book_upcoming = Column(String)
+    book_is_trade = Column(String)
+    book_note = Column(String)
+
+class TblExportCustomers(Base):
+    __tablename__ = 'tbl_export_customers'
+
+    First_Name = Column(String)
+    Last_Name = Column(String)
+    Email = Column(String)
+    Phone = Column(String)
+
+class TblTempNotes(Base):
+    __tablename__ = 'tbl_temp_notes'
+
+    book_id = Column(Integer, primary_key=True)
+    sNotes = Column(String)
+
+
+class TblPublishers(Base):
+    __tablename__ = 'tbl_publishers'
+
+    pub_id = Column(Integer, primary_key=True)
+    pub_name = Column(String)
+    pub_active = Column(String)
+
+class Temp(Base):
+    __tablename__ = 'temp'
+
+    book_title = Column(String)
+    book_publisher = Column(String)
+
+    
