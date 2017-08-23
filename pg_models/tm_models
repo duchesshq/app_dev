@@ -1,2 +1,16 @@
 from sqlalchemy import Column, DateTime, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+
+class TblConfig(Base):
+    __tablename__ = 'tbl_config'
+
+    rec_id = Column(Integer, primary_key = True)
+    config_day =Column(DateTime)
+    config_manual_submit = Column(DateTime)
+    config_print_path = Column(String)
+    config_onthego_path = Column(String)
+
+    
