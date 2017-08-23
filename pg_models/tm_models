@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, String, Integer
+from sqlalchemy import Column, Date, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -8,9 +8,25 @@ class TblConfig(Base):
     __tablename__ = 'tbl_config'
 
     rec_id = Column(Integer, primary_key = True)
-    config_day =Column(DateTime)
-    config_manual_submit = Column(DateTime)
+    config_day =Column(Date)
+    config_manual_submit = Column(Date)
     config_print_path = Column(String)
     config_onthego_path = Column(String)
 
-    
+class tbl_final_orders(Base):
+    __tablename__ = 'tbl_final_orders'
+
+    rec_id = Column(Integer, primary_key = True)
+    book_id = Column(Integer)
+    order_id = Column(Integer)
+    order_date = Column(Date)
+    order_notes = Column(String)
+    order_publisher = Column(String)
+    order_book_title = Column(String)
+    order_main = Column(String)
+    order_main_change = Column(String)
+    order_variant = Column(String)
+    order_variant_change = Column(String)
+    order_shelf = Column(String)
+    order_pull_notes = Column(String)
+    order_is_committed = Column(String)
