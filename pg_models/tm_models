@@ -13,7 +13,8 @@ class TblConfig(Base):
     config_print_path = Column(String)
     config_onthego_path = Column(String)
 
-class tbl_final_orders(Base):
+
+class TblFinalOrders(Base):
     __tablename__ = 'tbl_final_orders'
 
     rec_id = Column(Integer, primary_key = True)
@@ -23,10 +24,66 @@ class tbl_final_orders(Base):
     order_notes = Column(String)
     order_publisher = Column(String)
     order_book_title = Column(String)
-    order_main = Column(String)
-    order_main_change = Column(String)
-    order_variant = Column(String)
-    order_variant_change = Column(String)
-    order_shelf = Column(String)
+    order_main = Column(Integer)
+    order_main_change = Column(Integer)
+    order_variant = Column(Integer)
+    order_variant_change = Column(Integer)
+    order_shelf = Column(Integer)
     order_pull_notes = Column(String)
     order_is_committed = Column(String)
+
+class TblExportOrders(Base):
+    __tablename__ = 'tbl_export_orders'
+
+    Publisher = Column(String)
+    Title = Column(String)
+    Main = Column(String)
+    Variant = Column(String)
+    Shelf = Column(Integer)
+    Notes = Column(String)
+
+class TblCustomers(Base):
+    __tablename__ = 'tbl_customers'
+
+    cust_id = Column(Integer, primary_key = True)
+    cust_first_name = Column(String)
+    cust_last_name = Column(String)
+    cust_address_1 = Column(String)
+    cust_address_2 = Column(String)
+    cust_city = Column(String)
+    cust_state = Column(String)
+    cust_zip = Column(String)
+    cust_phone = Column(String)
+    cust_email = Column(String)
+    cust_is_active = Column(String)
+    cust_email_list = Column(String)
+    cust_add_date = Column(Date)
+    cust_remove_date = Column(Date)
+    cust_exported = Column(String)
+    cust_export_date = Column(Date)
+
+class TblExportBooks(Base):
+    __tablename__ = 'tbl_export_books'
+
+    Publisher = Column(String)
+    Title = Column(String)
+    Mature = Column(String)
+    All_Ages = Column(String)
+    Local = Column(String)
+    Subscription_OneShot_All =Column(String)
+    Upcoming_Research = Column(String)
+    Notes = Column(String)
+
+
+class TblExportTradeOrders(TblExportOrders):
+    __tablename__ = 'tbl_export_trade_orders'
+
+
+class TblExportTrades(TblExportBooks):
+    __tablename__ = 'tble_export_trades'
+
+
+class TbleBooks(Base):
+    __table__ = 'tbl_books'
+
+    book_id = Column(Integer, primary_key = True)
